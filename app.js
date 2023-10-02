@@ -4,10 +4,36 @@
 //offsetTop - A Number, representing the top position of the element, in pixels
 
 // ********** set date ************
+const date = document.getElementById('date');
+date.innerHTML = new Date().getFullYear();
 
 // ********** close links ************
+const linksContainer = document.querySelector('.links-container');
+const links = document.querySelector('.links');
+const navToggle = document.querySelector('.nav-toggle');
 
+navToggle.addEventListener('click', function(){
+    // linksContainer.classList.toggle('show-links');
+    const containerHeight = linksContainer.getBoundingClientRect().height;
+    const linksHeight = links.getBoundingClientRect().height;
+    if (containerHeight === 0) {
+        linksContainer.style.height = `${linksHeight}px`;
+    } else {
+        linksContainer.style.height = 0;
+    }
+});
 // ********** fixed navbar ************
+const navbar = document.getElementById('nav');
+const topLik = document.querySelector('.top-link');
 
+window.addEventListener('scroll', function(){
+const scrowHeight = window.scrollY;
+const navHeight = navbar.getBoundingClientRect().height;
+if (scrowHeight > navHeight) {
+    navbar.classList.add('fixed-nav');
+} else {
+    navbar.classList.remove("fixed-nav");
+}
+});
 // ********** smooth scroll ************
 // select links
