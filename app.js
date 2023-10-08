@@ -71,3 +71,19 @@ linksContainer.style.height = 0;
  });
 });
 
+
+// delete this
+if (!fixedNav) {
+    position = position - navHeight;
+}
+if (navHeight > 82) {
+    position = position + containerHeight;
+}
+window.scrollTo({
+    left: 0, 
+    top: position,
+});
+linksContainer.style.height = 0;
+ });
+});
+
